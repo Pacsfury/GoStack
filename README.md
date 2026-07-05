@@ -19,6 +19,9 @@ This is based on a stack, which is modified using some operations.
 | OUT       | 6     | Outputs the stack |
 | JMP       | 7     | Jumps to arg |
 | JNZ       | 8     | Jumps to arg if last element of stack != 0 |
+| JIZ       | 9     | Jumps to arg if last element of stack == 0 |
+| POP       | 10    | Deletes last element of stack |
+| DUP       | 11    | Duplicates last element of stack |
 
 ## Error management
 At the moment, there are two possible errors:
