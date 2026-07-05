@@ -9,6 +9,9 @@ const (
 	OUT  = 6
 	JMP  = 7
 	JNZ  = 8
+	JIZ  = 9
+	POP  = 10
+	DUP  = 11
 )
 
 var program = []int{
