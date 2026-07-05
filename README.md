@@ -22,7 +22,7 @@ This is based on a stack, which is modified using some operations.
 
 ## Error management
 At the moment, there are two possible errors:
-* Not ennough args in stack
+* Not enough args in stack
 * b == 0 in division
 
 Errors are treated as intentional, so they are just ignored.
