@@ -12,15 +12,12 @@ const (
 	JIZ  = 9
 	POP  = 10
 	DUP  = 11
-	RES  = 12
 )
 
 var program = []int{
-	RES, 6,
 	PUSH, 5,
 	PUSH, 3,
 	ADD,
-	JMP, 2,
 	OUT,
 }
 

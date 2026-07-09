@@ -58,7 +58,5 @@ func execute(op int) {
 		stack = stack[:len(stack)-1]
 	case DUP:
 		stack = append(stack, stack[len(stack)])
-	case RES:
-		pc += program[pc+1]
 	}
 }
