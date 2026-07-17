@@ -78,7 +78,7 @@ var program = []int{
 * **IN** = 38: Reads raw numerical data or hardware signal input and pushes it onto the stack.
 * **CIN** = 39: Reads a single character from the standard input stream and pushes its character code.
 * **HALT** = 40: Immediately stops all execution of the virtual machine program.
-* **TIME** = 41: Pushes the current system clock time or tick count onto the stack.
+* **TIME** = 41: Pushes the current system clock time or tick count onto the stack. (TIME, {1: Hour, 2: Minutes, 3:Second},)
 
 ### Math Extensions
 * **MOD** = 42: Pops two values, calculates the remainder of their division, and pushes the result.
