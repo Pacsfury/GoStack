@@ -27,7 +27,7 @@ This is based on a stack, which is modified using some operations.
 | NEQ       | 14    | Pops two values and pushes 1 if they are not equal, otherwise 0 |
 | LT        | 15    | Pops two values and pushes 1 if the first value is less than the second |
 | LTE       | 16    | Pops two values and pushes 1 if the first value is less than or equal to the second |
-| GT        | 17   | Pops two values and pushes 1 if the first value is greater than the second |
+| GT        | 17    | Pops two values and pushes 1 if the first value is greater than the second |
 | GTE       | 18    | Pops two values and pushes 1 if the first value is greater than or equal to the second |
 | AND       | 19    | Pops two values, performs a bitwise AND operation, and pushes the result |
 | OR        | 20    | Pops two values, performs a bitwise OR operation, and pushes the result |
