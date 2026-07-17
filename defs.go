@@ -28,9 +28,9 @@ const (
 )
 
 var program = []int{
-	PUSH, 1,
-	PUSH, 3,
-	LT,
+	PUSH, 5,
+	PUSH, 90,
+	SUB,
 	OUT,
 }
 

@@ -47,17 +47,27 @@ func execute(op int) {
 	case JMP:
 		pc = program[pc+1]
 	case JNZ:
-		if stack[len(stack)] != 0 {
-			pc = program[pc+1]
+		condition := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if condition != 0 {
+			pc = program[pc+1] - 1 
+		} else {
+			pc += 1
 		}
+
 	case JIZ:
-		if stack[len(stack)] == 0 {
-			pc = program[pc+1]
+		condition := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		if condition == 0 {
+			pc = program[pc+1] - 1 
+		} else {
+			pc += 1
 		}
+
 	case POP:
 		stack = stack[:len(stack)-1]
 	case DUP:
-		stack = append(stack, stack[len(stack)])
+		stack = append(stack, stack[len(stack)-1])
 	case COUT:
 		fmt.Print(string(rune(stack[len(stack)-1])))
 	case EQ:
