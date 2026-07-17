@@ -50,7 +50,7 @@ func execute(op int) {
 		condition := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
 		if condition != 0 {
-			pc = program[pc+1] - 1 
+			pc = program[pc+1] - 1
 		} else {
 			pc += 1
 		}
@@ -59,7 +59,7 @@ func execute(op int) {
 		condition := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
 		if condition == 0 {
-			pc = program[pc+1] - 1 
+			pc = program[pc+1] - 1
 		} else {
 			pc += 1
 		}
@@ -72,7 +72,7 @@ func execute(op int) {
 		fmt.Print(string(rune(stack[len(stack)-1])))
 	case EQ:
 		var result int = 0
-		if (stack[len(stack)-1] == stack[len(stack)-2]) {
+		if stack[len(stack)-1] == stack[len(stack)-2] {
 			result = 1
 		} else {
 			result = 0
@@ -82,7 +82,7 @@ func execute(op int) {
 		stack = append(stack, result)
 	case NEQ:
 		var result int = 1
-		if (stack[len(stack)-1] == stack[len(stack)-2]) {
+		if stack[len(stack)-1] == stack[len(stack)-2] {
 			result = 0
 		} else {
 			result = 1
@@ -92,7 +92,7 @@ func execute(op int) {
 		stack = append(stack, result)
 	case LT:
 		var result int = 1
-		if (stack[len(stack)-1] < stack[len(stack)-2]) {
+		if stack[len(stack)-1] < stack[len(stack)-2] {
 			result = 0
 		} else {
 			result = 1
@@ -102,7 +102,7 @@ func execute(op int) {
 		stack = append(stack, result)
 	case GT:
 		var result int = 1
-		if (stack[len(stack)-1] > stack[len(stack)-2]) {
+		if stack[len(stack)-1] > stack[len(stack)-2] {
 			result = 0
 		} else {
 			result = 1
@@ -112,7 +112,7 @@ func execute(op int) {
 		stack = append(stack, result)
 	case LTE:
 		var result int = 1
-		if (stack[len(stack)-1] <= stack[len(stack)-2]) {
+		if stack[len(stack)-1] <= stack[len(stack)-2] {
 			result = 0
 		} else {
 			result = 1
@@ -122,7 +122,7 @@ func execute(op int) {
 		stack = append(stack, result)
 	case GTE:
 		var result int = 1
-		if (stack[len(stack)-1] >= stack[len(stack)-2]) {
+		if stack[len(stack)-1] >= stack[len(stack)-2] {
 			result = 0
 		} else {
 			result = 1

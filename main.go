@@ -1,8 +1,8 @@
 package main
 
 func main() {
-    for pc < len(program) {
-        execute(program[pc])
-        pc += 1
-    }
+	for pc < len(program) {
+		execute(program[pc])
+		pc += 1
+	}
 }
