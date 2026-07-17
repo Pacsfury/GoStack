@@ -58,5 +58,7 @@ func execute(op int) {
 		stack = stack[:len(stack)-1]
 	case DUP:
 		stack = append(stack, stack[len(stack)])
+	case COUT:
+		fmt.Print(string(rune(stack[len(stack)-1])))
 	}
 }

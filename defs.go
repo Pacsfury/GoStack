@@ -12,13 +12,16 @@ const (
 	JIZ  = 9
 	POP  = 10
 	DUP  = 11
+	COUT = 12
 )
 
 var program = []int{
-	PUSH, 5,
-	PUSH, 3,
-	ADD,
-	OUT,
+	1, 5,
+	1, 3,
+	2,
+	6,
+	1, 65,
+	12,
 }
 
 var stack []int

@@ -22,6 +22,7 @@ This is based on a stack, which is modified using some operations.
 | JIZ       | 9     | Jumps to arg if last element of stack == 0 |
 | POP       | 10    | Deletes last element of stack |
 | DUP       | 11    | Duplicates last element of stack |
+| COUT      | 12    | Outputs to terminal the last stack item as ascii code |
 
 ## Error management
 At the moment, there are two possible errors:
@@ -39,3 +40,51 @@ var program = []int{
 	OUT,
 }
 ```
+
+## Future Operatioms
+
+### Memory & Pointers
+* **LOAD** = 13
+* **STORE** = 14
+* **LOADI** = 15
+* **STOREI** = 16
+
+### Comparisons
+* **EQ** = 17
+* **NEQ** = 18
+* **LT** = 19
+* **LTE** = 20
+* **GT** = 21
+* **GTE** = 22
+
+### Advanced Stack Manipulation
+* **SWAP** = 23
+* **DROP** = 24
+* **OVER** = 25
+* **ROT** = 26
+* **PICK** = 27
+
+### Functions & Return Stack
+* **CALL** = 28
+* **RET** = 29
+* **RUSH** = 30
+* **RPOP** = 31
+
+### Bitwise Operations
+* **AND** = 32
+* **OR** = 33
+* **XOR** = 34
+* **NOT** = 35
+* **SHL** = 36
+* **SHR** = 37
+
+### System & I/O
+* **IN** = 38
+* **CIN** = 39
+* **HALT** = 40
+* **TIME** = 41
+
+### Math Extensions
+* **MOD** = 42
+* **INC** = 43
+* **DEC** = 44
