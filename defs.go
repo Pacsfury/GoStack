@@ -13,15 +13,25 @@ const (
 	POP  = 10
 	DUP  = 11
 	COUT = 12
+	EQ   = 13
+	NEQ  = 14
+	LT   = 15
+	GT   = 16
+	LTE  = 17
+	GTE  = 18
+	AND  = 19
+	OR   = 20
+	XOR  = 21
+	NOT  = 22
+	SHL  = 23
+	SHR  = 24
 )
 
 var program = []int{
-	1, 5,
-	1, 3,
-	2,
-	6,
-	1, 65,
-	12,
+	PUSH, 1,
+	PUSH, 3,
+	LT,
+	OUT,
 }
 
 var stack []int

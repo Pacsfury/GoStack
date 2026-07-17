@@ -23,6 +23,19 @@ This is based on a stack, which is modified using some operations.
 | POP       | 10    | Deletes last element of stack |
 | DUP       | 11    | Duplicates last element of stack |
 | COUT      | 12    | Outputs to terminal the last stack item as ascii code |
+| EQ        | 13    | Pops two values and pushes 1 (true) if they are equal, otherwise 0 (false) |
+| NEQ       | 14    | Pops two values and pushes 1 if they are not equal, otherwise 0 |
+| LT        | 15    | Pops two values and pushes 1 if the first value is less than the second |
+| LTE       | 16    | Pops two values and pushes 1 if the first value is less than or equal to the second |
+| GT        | 17   | Pops two values and pushes 1 if the first value is greater than the second |
+| GTE       | 18    | Pops two values and pushes 1 if the first value is greater than or equal to the second |
+| AND       | 19    | Pops two values, performs a bitwise AND operation, and pushes the result |
+| OR        | 20    | Pops two values, performs a bitwise OR operation, and pushes the result |
+| XOR       | 21    | Pops two values, performs a bitwise exclusive OR operation, and pushes the result |
+| NOT       | 22    | Pops the top value, inverts all its bits, and pushes the result |
+| SHL       | 23    | Pops a value and a shift count, shifts the value bits left, and pushes the result |
+| SHR       | 24    | Pops a value and a shift count, shifts the value bits right, and pushes the result |
+
 
 ## Error management
 At the moment, there are two possible errors:
@@ -49,14 +62,6 @@ var program = []int{
 * **LOADI** = 15: Indirect load. Pops an address from the stack, reads the value from that address, and pushes it.
 * **STOREI** = 16: Indirect store. Pops an address and a value from the stack, then writes the value to that address.
 
-### Comparisons
-* **EQ** = 17: Pops two values and pushes 1 (true) if they are equal, otherwise 0 (false).
-* **NEQ** = 18: Pops two values and pushes 1 if they are not equal, otherwise 0.
-* **LT** = 19: Pops two values and pushes 1 if the first value is less than the second.
-* **LTE** = 20: Pops two values and pushes 1 if the first value is less than or equal to the second.
-* **GT** = 21: Pops two values and pushes 1 if the first value is greater than the second.
-* **GTE** = 22: Pops two values and pushes 1 if the first value is greater than or equal to the second.
-
 ### Advanced Stack Manipulation
 * **SWAP** = 23: Exchanges the positions of the top two items on the stack.
 * **OVER** = 25: Copies the second item on the stack and pushes it to the top.
@@ -68,14 +73,6 @@ var program = []int{
 * **RET** = 29: Pops the return address from the return stack and jumps back to resume previous execution.
 * **RUSH** = 30: Pops a value from the main data stack and pushes it directly onto the return stack.
 * **RPOP** = 31: Pops a value from the return stack and pushes it onto the main data stack.
-
-### Bitwise Operations
-* **AND** = 32: Pops two values, performs a bitwise AND operation, and pushes the result.
-* **OR** = 33: Pops two values, performs a bitwise OR operation, and pushes the result.
-* **XOR** = 34: Pops two values, performs a bitwise exclusive OR operation, and pushes the result.
-* **NOT** = 35: Pops the top value, inverts all its bits, and pushes the result.
-* **SHL** = 36: Pops a value and a shift count, shifts the value bits left, and pushes the result.
-* **SHR** = 37: Pops a value and a shift count, shifts the value bits right, and pushes the result.
 
 ### System & I/O
 * **IN** = 38: Reads raw numerical data or hardware signal input and pushes it onto the stack.
