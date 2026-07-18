@@ -84,3 +84,7 @@ var program = []int{
 * **MOD** = 42: Pops two values, calculates the remainder of their division, and pushes the result.
 * **INC** = 43: Adds 1 directly to the top value on the stack.
 * **DEC** = 44: Subtracts 1 directly from the top value on the stack.
+
+## Future Idea
+
+I would like to make (another) programming lanugage, but this time, using GoStack instead of LLVM.
