@@ -87,4 +87,12 @@ var program = []int{
 
 ## Future Idea
 
-I would like to make (another) programming lanugage, but this time, using GoStack instead of LLVM.
+* I would like to make (another) programming lanugage, but this time, using GoStack instead of LLVM.
+* We could make substacks, simpler secondary stack, with only SPUSH, SPOP and SRUN.
+  * SPUSH pushes to actual substack
+  * SPOP pops from actual substack
+  * SRUN executes a command that only requieres one argument (like COUT) and executes it at all the substack
+  Also, wo would need these:
+  * SCRT creates a new substack with an ID
+  * SGO goes to that substack
+  * SDROP deletes the substack
