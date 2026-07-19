@@ -45,13 +45,12 @@ At the moment, there are two possible errors:
 Errors are treated as intentional, so they are just ignored.
 
 ## Example: sum 5 and 3
+`program.gosb` should be: 
 ```go
-var program = []int{
-	PUSH, 5,
-	PUSH, 3,
-	ADD,
-	OUT,
-}
+PUSH, 5,
+PUSH, 3,
+ADD,
+OUT,
 ```
 
 ## Future Operations
