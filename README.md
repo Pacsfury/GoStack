@@ -86,7 +86,7 @@ OUT,
 
 ## Future Idea
 
-* I would like to make (another) programming lanugage, but this time, using GoStack instead of LLVM.
+* I would like to make (another) programming lanugage, but this time, using GoStack instead of LLVM. You can find it in my repo [Salt](https://github.com/Pacsfury/Salt-Scripting)
 * We could make substacks, simpler secondary stack, with only SPUSH, SPOP and SRUN.
   * SPUSH pushes to actual substack (main -> current substack)
   * SPOP pops from actual substack (current substack -> main)
