@@ -8,34 +8,43 @@ import (
 )
 
 const (
-	PUSH = 1
-	ADD  = 2
-	SUB  = 3
-	MUL  = 4
-	DIV  = 5
-	OUT  = 6
-	JMP  = 7
-	JNZ  = 8
-	JIZ  = 9
-	POP  = 10
-	DUP  = 11
-	COUT = 12
-	EQ   = 13
-	NEQ  = 14
-	LT   = 15
-	GT   = 16
-	LTE  = 17
-	GTE  = 18
-	AND  = 19
-	OR   = 20
-	XOR  = 21
-	NOT  = 22
-	SHL  = 23
-	SHR  = 24
+	PUSH  = 1
+	ADD   = 2
+	SUB   = 3
+	MUL   = 4
+	DIV   = 5
+	OUT   = 6
+	JMP   = 7
+	JNZ   = 8
+	JIZ   = 9
+	POP   = 10
+	DUP   = 11
+	COUT  = 12
+	EQ    = 13
+	NEQ   = 14
+	LT    = 15
+	GT    = 16
+	LTE   = 17
+	GTE   = 18
+	AND   = 19
+	OR    = 20
+	XOR   = 21
+	NOT   = 22
+	SHL   = 23
+	SHR   = 24
+	SCRT  = 25
+	SPUSH = 26
+	SPOP  = 27
+	SRUN  = 28
+	SGO   = 29
+	SDROP = 30
+	SPSH  = SPUSH
 )
 
 var program []int
 var stack []int
+var substacks map[int][]int
+var activeSubstack int = -1
 var pc int = 0
 
 func init() {
@@ -57,6 +66,8 @@ func init() {
 		"DUP": DUP, "COUT": COUT, "EQ": EQ, "NEQ": NEQ, "LT": LT,
 		"GT": GT, "LTE": LTE, "GTE": GTE, "AND": AND, "OR": OR,
 		"XOR": XOR, "NOT": NOT, "SHL": SHL, "SHR": SHR,
+		"SCRT": SCRT, "SPUSH": SPUSH, "SPOP": SPOP, "SRUN": SRUN, "SGO": SGO, "SDROP": SDROP,
+		"SPSH": SPUSH,
 	}
 
 	tokens := strings.Fields(text)

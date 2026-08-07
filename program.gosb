@@ -1,6 +1,10 @@
 {
-PUSH, 5,
-PUSH, 90,
-SUB,
-OUT,
+SCRT, 5,
+PUSH, 65,
+SPSH, 5,
+PUSH, 65,
+SPSH, 5,
+PUSH, 65,
+SPSH, 5,
+SRUN, COUT, 5,
 }

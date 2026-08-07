@@ -84,10 +84,8 @@ OUT,
 * **INC** = 43: Adds 1 directly to the top value on the stack.
 * **DEC** = 44: Subtracts 1 directly from the top value on the stack.
 
-## Future Idea
-
-* I would like to make (another) programming lanugage, but this time, using GoStack instead of LLVM. You can find it in my repo [Salt](https://github.com/Pacsfury/Salt-Scripting)
-* We could make substacks, simpler secondary stack, with only SPUSH, SPOP and SRUN.
+## Substacks
+Substacks are simpler secondary stacks, with only SPUSH, SPOP and SRUN.
   * SPUSH pushes to actual substack (main -> current substack)
   * SPOP pops from actual substack (current substack -> main)
   * SRUN executes a command that only requieres one argument (like COUT) and executes it at all the substack
@@ -95,3 +93,8 @@ OUT,
   * SCRT creates a new substack with an ID
   * SGO goes to that substack
   * SDROP deletes the substack
+
+
+## Future Idea
+
+* I would like to make (another) programming lanugage, but this time, using GoStack instead of LLVM. You can find it in my repo [Salt](https://github.com/Pacsfury/Salt-Scripting)
