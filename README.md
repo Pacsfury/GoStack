@@ -35,6 +35,12 @@ This is based on a stack, which is modified using some operations.
 | NOT       | 22    | Pops the top value, inverts all its bits, and pushes the result |
 | SHL       | 23    | Pops a value and a shift count, shifts the value bits left, and pushes the result |
 | SHR       | 24    | Pops a value and a shift count, shifts the value bits right, and pushes the result |
+| SCRT | 25 | Creates substack
+| SDROP| 26| Deletes a substack
+| SGO |27| Moves to a substack
+| SPSH |28| Main stack -> current substack
+| SRUN | 29| Executes a command that only requieres one argument (like COUT) and executes it at all the substack
+| SPOP |30| Current substack -> main stack
 
 
 ## Error management
