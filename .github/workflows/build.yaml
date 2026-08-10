@@ -9,6 +9,7 @@ permissions:
 
 jobs:
   build:
+    name: Build for ${{ matrix.os }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -50,12 +51,43 @@ jobs:
           BUILD_NUM=${{ steps.buildnum.outputs.build_num }}
           go build -o gostack-${{ matrix.os }}-$BUILD_NUM${{ matrix.ext }} .
 
-      - name: Upload Binaries to Release
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: binary-${{ matrix.os }}
+          path: gostack-${{ matrix.os }}-*${{ matrix.ext }}
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+          fetch-depth: 0
+
+      - name: Get Build Number
+        id: buildnum
+        run: |
+          BUILD_NUM=$(git rev-list --count HEAD)
+          echo "build_num=$BUILD_NUM" >> $GITHUB_OUTPUT
+
+      - name: Download All Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: all-binaries
+
+      - name: Prepare Binaries Directory
+        run: |
+          mkdir -p final-release
+          cp all-binaries/binary-*/* final-release/
+          ls -la final-release/
+
+      - name: Create Single Nightly Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: nightly-${{ steps.buildnum.outputs.build_num }}
           name: "Nightly Build #${{ steps.buildnum.outputs.build_num }}"
           prerelease: true
-          files: gostack-*-${{ steps.buildnum.outputs.build_num }}*
+          files: final-release/*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
