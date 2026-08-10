@@ -1,4 +1,4 @@
-name: Auto Build GoStack Nightly
+name: Auto Build GoStack Nightly Multi-OS
 
 on:
   push:
@@ -10,6 +10,21 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - os: linux
+            goos: linux
+            goarch: amd64
+            ext: ""
+          - os: windows
+            goos: windows
+            goarch: amd64
+            ext: ".exe"
+          - os: macos
+            goos: darwin
+            goarch: amd64
+            ext: ""
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -21,19 +36,26 @@ jobs:
         with:
           go-version: '1.22'
 
-      - name: Build Binary
-        id: build
+      - name: Get Build Number
+        id: buildnum
         run: |
           BUILD_NUM=$(git rev-list --count HEAD)
           echo "build_num=$BUILD_NUM" >> $GITHUB_OUTPUT
-          go build -o gostack-build-$BUILD_NUM .
 
-      - name: Create Nightly Release
+      - name: Build Executable for ${{ matrix.os }}
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: |
+          BUILD_NUM=${{ steps.buildnum.outputs.build_num }}
+          go build -o gostack-${{ matrix.os }}-$BUILD_NUM${{ matrix.ext }} .
+
+      - name: Upload Binaries to Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: nightly-${{ steps.build.outputs.build_num }}
-          name: "Nightly Build #${{ steps.build.outputs.build_num }}"
+          tag_name: nightly-${{ steps.buildnum.outputs.build_num }}
+          name: "Nightly Build #${{ steps.buildnum.outputs.build_num }}"
           prerelease: true
-          files: gostack-build-${{ steps.build.outputs.build_num }}
+          files: gostack-*-${{ steps.buildnum.outputs.build_num }}*
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
