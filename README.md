@@ -95,7 +95,9 @@ Substacks are simpler secondary stacks, with only SPUSH, SPOP and SRUN.
   * SPUSH pushes to actual substack (main -> current substack)
   * SPOP pops from actual substack (current substack -> main)
   * SRUN executes a command that only requieres one argument (like COUT) and executes it at all the substack
-  Also, wo would need these:
+
+  Also, we would need these:
+
   * SCRT creates a new substack with an ID
   * SGO goes to that substack
   * SDROP deletes the substack
